@@ -16,11 +16,10 @@ Input: list1 = [], list2 = [0]
 Output: [0]
 */
 
+import java.util.Arrays;
+
 public class Solution2 {
     public int[] mergeLists(int[] list1, int[] list2) {
-        //задал массивы
-        list1 = new int[]{2, 4, 5, 8};
-        list2 = new int[]{2, 6, 3, 10};
 
         // создаю новый массив, обЪединяющий размеры лист1 илист 2
         int[] multiList = new int[list1.length + list2.length];
@@ -29,7 +28,10 @@ public class Solution2 {
         System.arraycopy(list1, 0, multiList, 0, list1.length);
 
         //копируем значения элементов лист2 в мультилист
-        System.arraycopy(list2, 0, multiList, 0, list2.length);
+        System.arraycopy(list2, 0, multiList, list1.length, list2.length);
+
+        Arrays.sort(multiList);
+
         return multiList;
 
     }
